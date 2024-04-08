@@ -43,3 +43,6 @@ Thumbs.db
 # Next.js
 .next
 out
+
+# secret
+project.json.bak

@@ -57,7 +57,21 @@
       "options": {
         "lintFilePatterns": ["apps/frontend-nextjs/**/*.{ts,tsx,js,jsx}"]
       }
+    },
+    "fetch-repos": {
+      "executor": "@afuteam-nx/plugin-fetch-repos:run",
+      "options": {
+        "accessToken": "获取代码仓库的accessToken",
+        "resultPath": "结果输出的位置 文件名 allProjects.json ",
+        "gitLabBaseUrl": "git仓库地址，比如 https://gitlab.com",
+        "rootGroupId": "仓库group类型的id 比如 4203",
+        "ignoreGroupIds": "排除的group类型的id [1424, 12212]",
+        "ignoreProjectsIds": "排除的project类型的id集合 [444, 0001]",
+        "addRepoIds": "新增的project类型的id集合 [444, 0001]",
+        "per_page": "通过git api获取项目列表时，每次获取的数量，默认 100",
+      }
     }
+
   },
   "tags": []
 }
