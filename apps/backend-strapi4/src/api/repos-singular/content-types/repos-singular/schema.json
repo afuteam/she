@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "repos_plural",
+  "info": {
+    "singularName": "repos-singular",
+    "pluralName": "repos-plural",
+    "displayName": "repos"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "name_with_namespace": {
+      "type": "string"
+    },
+    "path": {
+      "type": "string"
+    },
+    "path_with_namespace": {
+      "type": "string"
+    },
+    "default_branch": {
+      "type": "string"
+    }
+  }
+}

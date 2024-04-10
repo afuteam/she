@@ -20,7 +20,7 @@ Run `npx nx connect-to-nx-cloud` to enable [remote caching](https://nx.app) and 
 
 `npx nx serve frontend-nextjs`
 
-## Run Backend
+## Run Backend  
 
 `npx nx serve backend-strapi4`
 
