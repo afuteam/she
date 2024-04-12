@@ -4,19 +4,12 @@ import { GET, POST } from './api/repos/route';
 import styles from './page.module.css';
 
 const mockdata = [{
-  name: '1',
-  description: '111',
+  name: 'she',
+  description: 'Service Health Evaluation',
   name_with_namespace: '',
   path: '',
   path_with_namespace: '',
   default_branch: 'main',
-}, {
-  name: '2',
-  description: '21',
-  name_with_namespace: '',
-  path: '',
-  path_with_namespace: '',
-  default_branch: 'master',
 }]
 
 const getReposInfo = async () => {
@@ -42,7 +35,7 @@ export default function Index() {
           <div id="welcome">
             <h1>
               <span> Hello there, </span>
-              Welcome 88 👋
+              Welcome SHE 👋
             </h1>
           </div>
 
