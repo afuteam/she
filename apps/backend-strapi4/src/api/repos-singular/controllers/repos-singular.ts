@@ -27,14 +27,14 @@ export default factories.createCoreController('api::repos-singular.repos-singula
       // 如果数据是数组，则使用 Promise.all 来并行处理所有创建操作
       const allRes = await Promise.all(
         data.map(async item => {
-          // item.attributes.publishedAt = new Date()
           const itemInfoFromDB = await pickOneByName(item.name)
           if(!!itemInfoFromDB) {
+            item.updatedAt = new Date()
             strapi.db.query('api::repos-singular.repos-singular').update({where: {id: itemInfoFromDB.id}, data: item});
           } else {
+            item.publishedAt = new Date()
             strapi.db.query('api::repos-singular.repos-singular').create({data: item});
           }
-          // await strapi.entityService.publish(itemInfoFromDB, { model: 'api::repos-singular.repos-singular' });
         })
       );
       return allRes;
@@ -42,8 +42,10 @@ export default factories.createCoreController('api::repos-singular.repos-singula
       let response = null
       const itemInfoFromDB = await pickOneByName(data.name);
       if(!!itemInfoFromDB) {
+        data.updatedAt = new Date()
         response = await strapi.db.query('api::repos-singular.repos-singular').update({where: {id: itemInfoFromDB.id}, data});
       } else {
+        data.publishedAt = new Date()
         response = await strapi.db.query('api::repos-singular.repos-singular').create({data});
       }
 

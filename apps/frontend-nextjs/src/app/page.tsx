@@ -3,25 +3,32 @@
 import { GET, POST } from './api/repos/route';
 import styles from './page.module.css';
 
-const mockdata = {
-  name: 'wow000',
-  description: '',
+const mockdata = [{
+  name: '1',
+  description: '111',
   name_with_namespace: '',
   path: '',
   path_with_namespace: '',
-  default_branch: 'main'
-}
+  default_branch: 'main',
+}, {
+  name: '2',
+  description: '21',
+  name_with_namespace: '',
+  path: '',
+  path_with_namespace: '',
+  default_branch: 'master',
+}]
 
 const getReposInfo = async () => {
 
   // TODO 将数据插入到strapi中 mockdata
 
-  const pd = await POST({data: [mockdata]})
+  const pd = await POST({data: mockdata})
   console.log('post data \n', pd)
 
   // TODO 获取数据
   const data = await GET()
-  console.log('get data \n', data)
+  console.log('get data \n', data.data)
 
 }
 
