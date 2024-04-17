@@ -1,6 +1,6 @@
 'use client'
 
-import { GET, POST } from './api/repos/route';
+import { GetRepoData, UpdateRepoData } from './api/repos/repo';
 import styles from './page.module.css';
 
 const mockdata = [{
@@ -16,11 +16,11 @@ const getReposInfo = async () => {
 
   // TODO 将数据插入到strapi中 mockdata
 
-  const pd = await POST({data: mockdata})
+  const pd = await UpdateRepoData({data: mockdata})
   console.log('post data \n', pd)
 
   // TODO 获取数据
-  const data = await GET()
+  const data = await GetRepoData()
   console.log('get data \n', data.data)
 
 }
