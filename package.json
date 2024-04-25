@@ -2,7 +2,11 @@
   "name": "@she/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "docker-build-dev": "docker build --no-cache -f ./Dockerfile . -t strapi4",
+    "docker": "docker compose up",
+    "local-nextjs": "npx nx serve frontend-nextjs"
+  },
   "private": true,
   "dependencies": {
     "next": "14.0.4",
@@ -15,6 +19,8 @@
   "devDependencies": {
     "@afuteam-nx/plugin-fetch-repos": "^0.0.7",
     "@nx-extend/strapi": "^9.0.2",
+    "@nx-tools/container-metadata": "^5.2.1",
+    "@nx-tools/nx-container": "^5.2.1",
     "@nx/eslint": "18.2.3",
     "@nx/eslint-plugin": "18.2.3",
     "@nx/jest": "18.2.3",
@@ -47,4 +53,3 @@
     "typescript": "~5.4.2"
   }
 }
-

@@ -3,10 +3,23 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/backend-strapi4/src",
+  "tags": [],
   "targets": {
+    "install": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "cwd": "apps/backend-strapi4",
+        "command": "yarn"
+      }
+    },
+
+    // @nx-extend/strapi/src/executors/serve/schema.json
     "serve": {
       "executor": "@nx-extend/strapi:serve",
-      "options": {}
+      "options": {
+        // "production": false // default
+      }
     },
     "build": {
       "executor": "@nx-extend/strapi:build",
@@ -20,7 +33,24 @@
           "production": true
         }
       }
+    },
+    "container": {
+      "executor": "@nx-tools/nx-container:build",
+      "dependsOn": ["build"],
+      "options": {
+        "engine": "docker",
+        "metadata": {
+          "images": ["backend-strapi4"],
+          "load": true,
+          "tags": [
+            "type=schedule",
+            "type=ref,event=branch",
+            "type=ref,event=tag",
+            "type=ref,event=pr",
+            "type=sha,prefix=sha-"
+          ]
+        }
+      }
     }
-  },
-  "tags": []
+  }
 }

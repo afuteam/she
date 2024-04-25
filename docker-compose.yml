@@ -1,0 +1,116 @@
+# services:
+#   backend:
+#     build:
+#       context: ./apps/backend-strapi4
+#       dockerfile: Dockerfile
+#     ports:
+#       - '1337:1337'
+#     volumes:
+#       - ./apps/backend-strapi4:/app
+#     environment:
+#       - DATABASE_CLIENT=postgres
+#       - DATABASE_HOST=db
+#       - DATABASE_PORT=5432
+#       - DATABASE_NAME=strapi
+#       - DATABASE_USERNAME=strapi
+#       - DATABASE_PASSWORD=strapi
+#     depends_on:
+#       - db
+
+#   frontend:
+#     build:
+#       context: ./apps/frontend-nextjs
+#       dockerfile: Dockerfile
+#     ports:
+#       - '3000:80'
+#     depends_on:
+#       - backend
+
+#   db:
+#     image: postgres:latest
+#     ports:
+#       - '5432:5432'
+#     environment:
+#       - POSTGRES_DB=strapi
+#       - POSTGRES_USER=strapi
+#       - POSTGRES_PASSWORD=strapi
+#     volumes:
+#       - pgdata:/var/lib/postgresql/data
+
+# volumes:
+#   pgdata:
+
+
+services:
+  # frontend:
+  #   build:
+  #     context: .
+  #     dockerfile: ./apps/frontend-nextjs/Dockerfile
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     - NODE_ENV=production
+
+  # backend:
+  #   build:
+  #     context: ./apps/backend-strapi4
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "1337:1337"
+  #   environment:
+  #     - NODE_ENV=development
+  #   platform: linux/arm64
+  #   command: npm run develop
+    # command: npx nx serve backend-strapi4 --verbose
+
+  # backend:
+  #   build:
+  #     context: .
+  #     dockerfile: ./apps/backend-strapi4/Dockerfile
+  #   ports:
+  #     - "1337:1337"
+  #   environment:
+  #     - NODE_ENV=development
+  #   platform: linux/arm64
+  #   command: npx nx serve backend-strapi4
+
+
+
+  # backend-strapi4:
+  #   build:
+  #     context: .
+  #     dockerfile: apps/backend-strapi4/Dockerfile
+  #   ports:
+  #     - "1337:1337" # 假设backend-strapi4运行在1337端口，根据实际情况进行修改
+  #   environment:
+  #     - NODE_ENV=production # 根据需要设置环境变量
+  #   # platform: linux/arm64
+  #   volumes:
+  #     - .:/usr/src/app # 可选：如果你希望代码更改能够实时反映到容器中，可以挂载卷
+  #   # command: npx nx serve backend-strapi4
+
+
+  strapi4:
+    # tty: true
+    # stdin_open: true
+    container_name: strapi4
+    build: .
+    image: backend-strapi4
+    restart: unless-stopped
+    # restart: no
+    volumes:
+      - .:/opt
+    ports:
+      - '1337:1337'
+    networks:
+      - strapi4
+    platform: linux/arm64
+    # command: ['tail', '-f', '/dev/null']
+
+volumes:
+  strapi-data:
+
+networks:
+  strapi4:
+    name: Strapi4
+    driver: bridge

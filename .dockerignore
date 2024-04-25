@@ -1,0 +1,84 @@
+# custom
+.env
+
+# compiled output
+/dist
+/tmp
+/out-tsc
+
+# dependencies
+node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# --- STRAPI ---
+apps/backend-strapi4/.DS_Store
+apps/backend-strapi4/.AppleDouble
+apps/backend-strapi4/.LSOverride
+apps/backend-strapi4/Icon
+apps/backend-strapi4/.Spotlight-V100
+apps/backend-strapi4/.Trashes
+apps/backend-strapi4/._*
+apps/backend-strapi4/Thumbs.db
+apps/backend-strapi4/ehthumbs.db
+apps/backend-strapi4/Desktop.ini
+apps/backend-strapi4/$RECYCLE.BIN/
+apps/backend-strapi4/*.cab
+apps/backend-strapi4/*.msi
+apps/backend-strapi4/*.msm
+apps/backend-strapi4/*.msp
+apps/backend-strapi4/.tmp
+apps/backend-strapi4/*.log
+apps/backend-strapi4/*.sql
+apps/backend-strapi4/*.sqlite
+apps/backend-strapi4/*.sqlite3
+apps/backend-strapi4/ssl
+apps/backend-strapi4/.idea
+apps/backend-strapi4/nbproject
+apps/backend-strapi4/public/uploads/*
+apps/backend-strapi4/!public/uploads/.gitkeep
+apps/backend-strapi4/lib-cov
+apps/backend-strapi4/lcov.info
+apps/backend-strapi4/pids
+apps/backend-strapi4/logs
+apps/backend-strapi4/results
+apps/backend-strapi4/node_modules
+apps/backend-strapi4/.node_history
+apps/backend-strapi4/testApp
+apps/backend-strapi4/coverage
+# apps/backend-strapi4/.env
+apps/backend-strapi4/license.txt
+apps/backend-strapi4/exports
+apps/backend-strapi4/*.cache
+apps/backend-strapi4/build
+apps/backend-strapi4/.strapi-updater.json
+apps/backend-strapi4/dist
+

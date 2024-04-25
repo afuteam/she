@@ -3,6 +3,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/frontend-nextjs",
   "projectType": "application",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@nx/next:build",
@@ -68,10 +69,26 @@
         "ignoreGroupIds": "排除的group类型的id [1424, 12212]",
         "ignoreProjectsIds": "排除的project类型的id集合 [444, 0001]",
         "addRepoIds": "新增的project类型的id集合 [444, 0001]",
-        "per_page": "通过git api获取项目列表时，每次获取的数量，默认 100",
+        "per_page": "通过git api获取项目列表时，每次获取的数量，默认 100"
+      }
+    },
+    "container": {
+      "executor": "@nx-tools/nx-container:build",
+      "dependsOn": ["build"],
+      "options": {
+        "engine": "docker",
+        "metadata": {
+          "images": ["frontend-nextjs"],
+          "load": true,
+          "tags": [
+            "type=schedule",
+            "type=ref,event=branch",
+            "type=ref,event=tag",
+            "type=ref,event=pr",
+            "type=sha,prefix=sha-"
+          ]
+        }
       }
     }
-
-  },
-  "tags": []
+  }
 }
