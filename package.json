@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "docker-build-dev": "docker build --no-cache -f ./Dockerfile . -t strapi4",
+    "docker-build-fe": "docker build -f ./Dockerfile . -t fe",
+    "docker-build-dev": "docker build -f ./Dockerfile . -t strapi4",
+    "docker-buildx-dev": "docker buildx build --no-cache --platform linux/arm64 -f ./Dockerfile . -t strapi4",
     "docker": "docker compose up",
     "local-nextjs": "npx nx serve frontend-nextjs"
   },

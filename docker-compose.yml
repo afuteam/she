@@ -90,22 +90,29 @@ services:
   #   # command: npx nx serve backend-strapi4
 
 
-  strapi4:
-    # tty: true
-    # stdin_open: true
-    container_name: strapi4
+  # strapi4:
+  #   container_name: strapi4
+  #   build: .
+  #   image: backend-strapi4
+  #   restart: unless-stopped
+
+  #   volumes:
+  #     - .:/opt
+  #   ports:
+  #     - '1337:1337'
+  #   networks:
+  #     - strapi4
+    # platform: linux/arm64
+
+  fe:
     build: .
-    image: backend-strapi4
+    container_name: fe
+    image: fe
     restart: unless-stopped
-    # restart: no
-    volumes:
-      - .:/opt
     ports:
-      - '1337:1337'
-    networks:
-      - strapi4
-    platform: linux/arm64
-    # command: ['tail', '-f', '/dev/null']
+      - "4200:4200"
+    # environment:
+    #   - NODE_ENV=production
 
 volumes:
   strapi-data:
