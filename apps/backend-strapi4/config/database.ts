@@ -1,6 +1,7 @@
 import path from 'path';
 
 export default ({ env }) => {
+
   const client = env('DATABASE_CLIENT', 'sqlite');
   const connections = {
     mysql: {
@@ -71,19 +72,10 @@ export default ({ env }) => {
     },
     sqlite: {
       connection: {
-        // filename: path.join(
-        //   __dirname,
-        //   '..',
-        //   '..',
-        //   env('DATABASE_FILENAME', '.tmp/data.db')
-        // ),
         filename: path.join(
-          env('DATABASE_FILENAME', 'DATABASE_LOCALPATH')
+          env('DATABASE_LOCALPATH'),
+          env('DATABASE_FILENAME')
         ),
-        // filename: path.join(
-        //   env('DATABASE_LOCALPATH'),
-        //   env('DATABASE_FILENAME', 'sqlite/data.db')
-        // ),
       },
       useNullAsDefault: true,
     },
