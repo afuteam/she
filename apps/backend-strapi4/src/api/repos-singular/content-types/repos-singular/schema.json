@@ -14,8 +14,11 @@
     "name": {
       "type": "string"
     },
+    "id_self": {
+      "type": "biginteger"
+    },
     "description": {
-      "type": "text"
+      "type": "string"
     },
     "name_with_namespace": {
       "type": "string"
@@ -28,6 +31,24 @@
     },
     "default_branch": {
       "type": "string"
+    },
+    "ssh_url_to_repo": {
+      "type": "string"
+    },
+    "http_url_to_repo": {
+      "type": "string"
+    },
+    "web_url": {
+      "type": "string"
+    },
+    "created_at_self": {
+      "type": "string"
+    },
+    "last_activity_at": {
+      "type": "string"
+    },
+    "creator_id": {
+      "type": "biginteger"
     }
   }
 }

@@ -362,41 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiReposSingularReposSingular extends Schema.CollectionType {
-  collectionName: 'repos_plural';
-  info: {
-    singularName: 'repos-singular';
-    pluralName: 'repos-plural';
-    displayName: 'repos';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String;
-    description: Attribute.Text;
-    name_with_namespace: Attribute.String;
-    path: Attribute.String;
-    path_with_namespace: Attribute.String;
-    default_branch: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::repos-singular.repos-singular',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::repos-singular.repos-singular',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -818,6 +783,70 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiCornCorn extends Schema.CollectionType {
+  collectionName: 'corns';
+  info: {
+    singularName: 'corn';
+    pluralName: 'corns';
+    displayName: 'corn';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::corn.corn', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::corn.corn', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiReposSingularReposSingular extends Schema.CollectionType {
+  collectionName: 'repos_plural';
+  info: {
+    singularName: 'repos-singular';
+    pluralName: 'repos-plural';
+    displayName: 'repos';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    id_self: Attribute.BigInteger;
+    description: Attribute.String;
+    name_with_namespace: Attribute.String;
+    path: Attribute.String;
+    path_with_namespace: Attribute.String;
+    default_branch: Attribute.String;
+    ssh_url_to_repo: Attribute.String;
+    http_url_to_repo: Attribute.String;
+    web_url: Attribute.String;
+    created_at_self: Attribute.String;
+    last_activity_at: Attribute.String;
+    creator_id: Attribute.BigInteger;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::repos-singular.repos-singular',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::repos-singular.repos-singular',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -828,7 +857,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::repos-singular.repos-singular': ApiReposSingularReposSingular;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -837,6 +865,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::corn.corn': ApiCornCorn;
+      'api::repos-singular.repos-singular': ApiReposSingularReposSingular;
     }
   }
 }

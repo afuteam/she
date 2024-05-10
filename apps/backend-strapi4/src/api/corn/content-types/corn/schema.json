@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "corns",
+  "info": {
+    "singularName": "corn",
+    "pluralName": "corns",
+    "displayName": "corn"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}
