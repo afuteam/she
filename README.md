@@ -56,8 +56,9 @@ npm run docker-b-be-dev
 
 ### Frontend && Backend
 
-```
-
+```bash
+# development
+npm run docker-dev
 ```
 
 

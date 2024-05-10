@@ -104,15 +104,15 @@ services:
   #     - strapi4
     # platform: linux/arm64
 
-  # fe-dev:
-  #   build: .
-  #   container_name: fe-dev
-  #   image: fe-dev
-  #   restart: unless-stopped
-  #   ports:
-  #     - "4200:4200"
-  #   environment:
-  #     - NODE_ENV=development
+  fe-dev:
+    build: .
+    container_name: fe-dev
+    image: fe-dev
+    restart: unless-stopped
+    ports:
+      - "4200:4200"
+    environment:
+      - NODE_ENV=development
   be-dev:
     container_name: be-dev
     build: .
