@@ -20,7 +20,7 @@ Run `npx nx connect-to-nx-cloud` to enable [remote caching](https://nx.app) and 
 
 `npx nx serve frontend-nextjs`
 
-## Run Backend  
+## Run Backend
 
 `npx nx serve backend-strapi4`
 
@@ -29,6 +29,35 @@ Run `npx nx connect-to-nx-cloud` to enable [remote caching](https://nx.app) and 
 `npx nx run-many --target=serve`
 
 
-## Further help
+## Docker
 
-Visit the [Nx Documentation](https://nx.dev) to learn more.
+notice: developemnt and production are different
+
+
+### Frontend
+```bash
+# development
+npm run docker-b-fe-dev
+# 浏览器访问 localhost:4200即可
+
+# production
+# TODO
+```
+
+### Backend
+```bash
+# development
+npm run docker-b-be-dev
+# 浏览器访问 localhost:1337/admin即可
+
+# production
+# TODO
+```
+
+### Frontend && Backend
+
+```
+
+```
+
+

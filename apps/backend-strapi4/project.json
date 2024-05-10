@@ -10,7 +10,7 @@
       "outputs": [],
       "options": {
         "cwd": "apps/backend-strapi4",
-        "command": "yarn"
+        "command": "npm install --registry=https://registry.npmmirror.com"
       }
     },
 

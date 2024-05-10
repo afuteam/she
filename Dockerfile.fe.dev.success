@@ -8,11 +8,8 @@ WORKDIR /app
 # 复制项目文件
 COPY . .
 
-# 安装依赖项
-# RUN npm install -g pnpm \
-#   && pnpm install
-
-RUN npm install
+RUN npm install --registry=https://registry.npmmirror.com
+# RUN npm install
 
 # 暴露服务端口
 EXPOSE 4200

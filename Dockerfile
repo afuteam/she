@@ -1,21 +1,24 @@
-# 基础镜像
 FROM node:18-alpine
+# Installing libvips-dev for sharp Compatability
 RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev nasm bash vips-dev
+ARG NODE_ENV=development
+ENV NODE_ENV=${NODE_ENV}
 
-# 设置工作目录
-WORKDIR /app
+WORKDIR /opt/
+COPY ./ ./
+# ENV PATH /opt/node_modules/.bin:$PATH
 
-# 复制项目文件
-COPY . .
-
-# 安装依赖项
 # RUN npm install -g pnpm \
-#   && pnpm install
+#   && npm config get registry \
+#   && npm install \
+#   && npx nx run backend-strapi4:install
 
-RUN npm install
+RUN npm install \
+  && npx nx run backend-strapi4:install
 
-# 暴露服务端口
-EXPOSE 4200
+COPY ./devDB/data.db ./apps/backend-strapi4/.tmp/data.db
+COPY ./devDB/uploads/ ./apps/backend-strapi4/public/uploads/
 
-# 运行应用
-CMD [ "npx", "nx", "serve", "frontend-nextjs"]
+EXPOSE 1337
+
+CMD ["npx", "nx", "serve", "backend-strapi4"]

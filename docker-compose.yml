@@ -104,20 +104,43 @@ services:
   #     - strapi4
     # platform: linux/arm64
 
-  fe:
+  # fe-dev:
+  #   build: .
+  #   container_name: fe-dev
+  #   image: fe-dev
+  #   restart: unless-stopped
+  #   ports:
+  #     - "4200:4200"
+  #   environment:
+  #     - NODE_ENV=development
+  be-dev:
+    container_name: be-dev
     build: .
-    container_name: fe
-    image: fe
+    image: be-dev
     restart: unless-stopped
+    # volumes:
+    #   - .:/opt
     ports:
-      - "4200:4200"
-    # environment:
-    #   - NODE_ENV=production
+      - '1337:1337'
+    networks:
+      - strapi4-dev
+
+
+  # fe-prod:
+  #   build: .
+  #   container_name: fe-prod
+  #   image: fe-prod
+  #   restart: unless-stopped
+  #   ports:
+  #     - "4200:4200"
+  #   environment:
+  #     - NODE_ENV=production
+
 
 volumes:
   strapi-data:
 
 networks:
-  strapi4:
-    name: Strapi4
+  strapi4-dev:
+    name: Strapi4Dev
     driver: bridge

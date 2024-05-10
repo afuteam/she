@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "docker-b-fe-dev": "docker build -f ./Dockerfile.fe.dev.success . -t fe-dev",
+    "docker-b-be-dev": "docker build -f ./Dockerfile.be.dev.success . -t be-dev",
     "docker-build-fe": "docker build -f ./Dockerfile . -t fe",
+    "d-be": "docker build -f ./Dockerfile . -t be",
     "docker-build-dev": "docker build -f ./Dockerfile . -t strapi4",
     "docker-buildx-dev": "docker buildx build --no-cache --platform linux/arm64 -f ./Dockerfile . -t strapi4",
     "docker": "docker compose up",
