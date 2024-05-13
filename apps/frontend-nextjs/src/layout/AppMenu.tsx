@@ -12,11 +12,18 @@ const AppMenu = () => {
 
     const model: AppMenuItem[] = [
         {
-            label: 'Home',
+            label: '总览',
+            show: true,
             items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' }]
         },
         {
+          label: '数据',
+          show: true,
+          items: [{ label: '项目清单', icon: 'pi pi-fw pi-chart-bar', to: '/lists/repos'}]
+        },
+        {
             label: 'UI Components',
+            show: false,
             items: [
                 { label: 'Form Layout', icon: 'pi pi-fw pi-id-card', to: '/uikit/formlayout' },
                 { label: 'Input', icon: 'pi pi-fw pi-check-square', to: '/uikit/input' },
@@ -38,6 +45,7 @@ const AppMenu = () => {
         },
         {
             label: 'Prime Blocks',
+            show: false,
             items: [
                 { label: 'Free Blocks', icon: 'pi pi-fw pi-eye', to: '/blocks', badge: 'NEW' },
                 { label: 'All Blocks', icon: 'pi pi-fw pi-globe', url: 'https://blocks.primereact.org', target: '_blank' }
@@ -45,6 +53,7 @@ const AppMenu = () => {
         },
         {
             label: 'Utilities',
+            show: false,
             items: [
                 { label: 'PrimeIcons', icon: 'pi pi-fw pi-prime', to: '/utilities/icons' },
                 { label: 'PrimeFlex', icon: 'pi pi-fw pi-desktop', url: 'https://primeflex.org/', target: '_blank' }
@@ -52,6 +61,7 @@ const AppMenu = () => {
         },
         {
             label: 'Pages',
+            show: false,
             icon: 'pi pi-fw pi-briefcase',
             to: '/pages',
             items: [
@@ -105,6 +115,7 @@ const AppMenu = () => {
         },
         {
             label: 'Hierarchy',
+            show: false,
             items: [
                 {
                     label: 'Submenu 1',
@@ -149,6 +160,7 @@ const AppMenu = () => {
         },
         {
             label: 'Get Started',
+            show: false,
             items: [
                 {
                     label: 'Documentation',
@@ -174,7 +186,7 @@ const AppMenu = () => {
     return (
         <MenuProvider>
             <ul className="layout-menu">
-                {model.map((item, i) => {
+                {model.filter(item => item?.show).map((item, i) => {
                     return !item?.seperator ? <AppMenuitem item={item} root={true} index={i} key={item.label} /> : <li className="menu-separator"></li>;
                 })}
 

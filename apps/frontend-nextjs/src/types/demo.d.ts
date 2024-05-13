@@ -173,6 +173,25 @@ declare namespace Demo {
         };
     };
 
+    type ReposListResult = {
+      createdAt: string,
+      created_at_self: string,
+      creator_id: string,
+      default_branch: string,
+      description: string,
+      http_url_to_repo: string,
+      id_self: string,
+      last_activity_at: string,
+      name: string
+      name_with_namespace: string,
+      path: string,
+      path_with_namespace: string,
+      publishedAt: string
+      ssh_url_to_repo: string
+      updatedAt: string
+      web_url: string
+    }
+
     interface Event extends EventInput {
         location?: string;
         description?: string;
